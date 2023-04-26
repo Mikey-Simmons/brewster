@@ -1,12 +1,11 @@
 import './App.css';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+
+
+
 import { useEffect, useState } from 'react';
 import axios from 'axios'
+import {BrewCard} from "./components/BrewCard";
 const  App=()=> {
   const [brews, setBrews] = useState([])
   const [loading, setLoading] = useState(true);
@@ -32,29 +31,11 @@ const  App=()=> {
 
     <div className='App'>
       {brews.map((brew)=>(
-        
+        <BrewCard name={brew.name} city ={brew.city} address_1 = {brew.address_1} postal_code={brew.postal_code} state={brew.state} />
         
   
         
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          height="200"
-          image=""
-          alt=""
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {brew.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+
     ))}
     </div>
       
